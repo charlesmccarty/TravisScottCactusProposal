@@ -31,7 +31,7 @@
 }
 
 .title-eyebrow {
-  margin-top: clamp(26px, 4vh, 44px);
+  margin-top: clamp(8px, 2vh, 26px);
   opacity: 0;
   animation: rise 0.9s ease 0.15s forwards;
 }
@@ -820,9 +820,8 @@
 
 .close-foot .brand-bb,
 .close-role .brand-bb {
-  color: var(--bb-blue);
-  font-weight: 700;
-  text-shadow: 0 0 12px rgba(77, 124, 255, 0.45);
+  color: var(--cream);
+  font-weight: 600;
 }
 
 @media (max-width: 640px) {

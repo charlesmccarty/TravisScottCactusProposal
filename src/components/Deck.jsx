@@ -70,7 +70,6 @@ export default function Deck({ slides }) {
   return (
     <>
       <div className="deck-confidential" role="note">
-        <span className="deck-confidential-dot" />
         Confidential — exploratory purposes only · Not for distribution to external partners
       </div>
 
