@@ -837,13 +837,18 @@
     padding-left: 20px;
     padding-right: 20px;
     padding-top: clamp(36px, 8vh, 56px);
-    padding-bottom: 88px;
+    padding-bottom: 104px;
     gap: 18px;
+    /* Only the content scrolls — the frame + footer stay pinned to the slide */
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 
   /* Title slide */
   .title-slide {
-    padding-bottom: 88px;
+    padding-bottom: 104px;
   }
   .title-wordmark,
   .title-sub {

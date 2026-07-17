@@ -37,6 +37,28 @@ export default function Deck({ slides }) {
     if (!deck) return;
     let locked = false;
     const onWheel = (e) => {
+      // If the current slide's content can scroll vertically (e.g. on
+      // mobile/small windows), let native vertical scrolling happen and only
+      // advance slides once the user is at the top/bottom edge.
+      const slideEl = slideRefs.current[active];
+      const scroller = slideEl && slideEl.querySelector(
+        ".title-slide, .opp-slide, .dash-slide, .age-slide, .close-slide"
+      );
+      if (scroller && Math.abs(e.deltaY) >= Math.abs(e.deltaX)) {
+        const oy = getComputedStyle(scroller).overflowY;
+        const scrollable =
+          (oy === "auto" || oy === "scroll") &&
+          scroller.scrollHeight > scroller.clientHeight + 1;
+        if (scrollable) {
+          const atTop = scroller.scrollTop <= 0;
+          const atBottom =
+            scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 1;
+          const pushingPastEdge =
+            (atTop && e.deltaY < 0) || (atBottom && e.deltaY > 0);
+          if (!pushingPastEdge) return;
+        }
+      }
+
       const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
       if (Math.abs(delta) < 12) return;
       e.preventDefault();
@@ -69,6 +91,8 @@ export default function Deck({ slides }) {
 
   return (
     <>
+      <div className="deck-scrim" aria-hidden="true" />
+
       <div className="deck-confidential" role="note">
         Confidential — exploratory purposes only · Not for distribution to external partners
       </div>

@@ -34,6 +34,24 @@
   z-index: 4;
 }
 
+/* Bottom scrim keeps footer/disclaimer legible over content (mobile only) */
+.deck-scrim {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 160px;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    #060504 28%,
+    rgba(6, 5, 4, 0.92) 52%,
+    rgba(6, 5, 4, 0) 100%
+  );
+}
+
 /* Persistent confidentiality disclaimer — italic, bottom of page */
 .deck-confidential {
   position: fixed;
@@ -167,36 +185,37 @@
   .slide-frame {
     inset: 12px;
   }
+
+  /* Show the scrim so the fixed chrome reads cleanly over content */
+  .deck-scrim {
+    display: block;
+  }
+
+  /* Nav dots are redundant on mobile (swipe + Next + page number cover it) */
+  .deck-nav {
+    display: none;
+  }
+
   .slide-footer {
     left: 18px;
     right: 18px;
-    bottom: 12px;
-    font-size: 0.48rem;
+    bottom: 10px;
+    font-size: 0.5rem;
     letter-spacing: 0.12em;
-  }
-  .deck-nav {
-    bottom: 12px;
   }
 
   /* Disclaimer sits on its own line above the footer on mobile */
   .deck-confidential {
-    bottom: 30px;
-    font-size: 0.5rem;
+    bottom: 28px;
+    font-size: 0.52rem;
     letter-spacing: 0;
-    max-width: calc(100vw - 24px);
-  }
-
-  /* Let each slide scroll vertically so nothing gets clipped on phones */
-  .slide {
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
+    max-width: calc(100vw - 28px);
   }
 
   .deck-next {
     height: 38px;
     padding: 0 6px 0 12px;
-    bottom: 66px;
+    bottom: 68px;
   }
   .deck-next-label {
     font-size: 0.54rem;
