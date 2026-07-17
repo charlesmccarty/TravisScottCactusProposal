@@ -824,11 +824,65 @@
   font-weight: 600;
 }
 
+/* ============ Mobile layout (phones) ============ */
 @media (max-width: 640px) {
+  /* Slides scroll vertically on mobile; align content to top with room
+     for the fixed footer + disclaimer at the bottom. */
+  .title-slide,
+  .opp-slide,
+  .dash-slide,
+  .age-slide,
+  .close-slide {
+    justify-content: flex-start;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: clamp(36px, 8vh, 56px);
+    padding-bottom: 88px;
+    gap: 18px;
+  }
+
+  /* Title slide */
   .title-slide {
-    padding-bottom: 76px;
+    padding-bottom: 88px;
+  }
+  .title-wordmark,
+  .title-sub {
+    white-space: normal;
+  }
+  .title-wordmark {
+    font-size: clamp(1.7rem, 8.5vw, 2.6rem);
   }
   .machine-stage {
-    height: clamp(260px, 42vh, 380px);
+    height: clamp(300px, 52vh, 460px);
+    margin-top: 4px;
+  }
+  .title-block {
+    margin-top: clamp(-40px, -5vh, -20px);
+  }
+
+  /* Opportunity + Age share the single-column treatment already;
+     Dashboard collapses to a single column so numbers stay legible. */
+  .dash-kpis,
+  .dash-lower {
+    grid-template-columns: 1fr 1fr;
+  }
+  .dash-head {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .age-shot-frame img {
+    height: clamp(210px, 40vh, 300px);
+  }
+  .age-points {
+    grid-template-columns: 1fr;
+  }
+
+  /* Closing slide */
+  .close-slide {
+    justify-content: center;
+  }
+  .close-title {
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
   }
 }

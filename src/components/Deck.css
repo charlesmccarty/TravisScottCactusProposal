@@ -116,17 +116,90 @@
   transform: scale(1.25);
 }
 
+/* Next-slide arrow button */
+.deck-next {
+  position: fixed;
+  bottom: clamp(58px, 9vh, 84px);
+  right: clamp(16px, 4vw, 44px);
+  z-index: 45;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 8px 0 16px;
+  border-radius: 999px;
+  color: var(--gold);
+  background: rgba(12, 10, 8, 0.72);
+  border: 1px solid rgba(201, 164, 92, 0.42);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  pointer-events: auto;
+  font-family: var(--font-sans);
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.deck-next:hover {
+  background: var(--gold);
+  color: #0c0a08;
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.deck-next-label {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.62rem;
+  font-weight: 600;
+}
+
+.deck-next svg {
+  width: 20px;
+  height: 20px;
+  animation: nudgeRight 1.5s ease-in-out infinite;
+}
+
+@keyframes nudgeRight {
+  0%, 100% { transform: translateX(-2px); }
+  50% { transform: translateX(3px); }
+}
+
 @media (max-width: 640px) {
   .slide-frame {
     inset: 12px;
   }
   .slide-footer {
-    left: 24px;
-    right: 24px;
-    bottom: 18px;
-    font-size: 0.55rem;
+    left: 18px;
+    right: 18px;
+    bottom: 12px;
+    font-size: 0.48rem;
+    letter-spacing: 0.12em;
   }
   .deck-nav {
-    right: 12px;
+    bottom: 12px;
+  }
+
+  /* Disclaimer sits on its own line above the footer on mobile */
+  .deck-confidential {
+    bottom: 30px;
+    font-size: 0.5rem;
+    letter-spacing: 0;
+    max-width: calc(100vw - 24px);
+  }
+
+  /* Let each slide scroll vertically so nothing gets clipped on phones */
+  .slide {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .deck-next {
+    height: 38px;
+    padding: 0 6px 0 12px;
+    bottom: 66px;
+  }
+  .deck-next-label {
+    font-size: 0.54rem;
+    letter-spacing: 0.14em;
   }
 }

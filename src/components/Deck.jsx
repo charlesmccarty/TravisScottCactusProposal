@@ -97,6 +97,19 @@ export default function Deck({ slides }) {
           />
         ))}
       </nav>
+
+      {active < slides.length - 1 && (
+        <button
+          className="deck-next"
+          aria-label="Next slide"
+          onClick={() => goTo(active + 1)}
+        >
+          <span className="deck-next-label">Next</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 6l6 6-6 6" />
+          </svg>
+        </button>
+      )}
     </>
   );
 }
