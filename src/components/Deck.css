@@ -1,0 +1,151 @@
+.deck {
+  height: 100vh;
+  height: 100dvh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+.slide {
+  height: 100vh;
+  height: 100dvh;
+  width: 100vw;
+  flex: 0 0 100vw;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Shared slide chrome */
+.slide-frame {
+  position: absolute;
+  inset: 22px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Persistent confidentiality disclaimer */
+.deck-confidential {
+  position: fixed;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: calc(100vw - 120px);
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(201, 164, 92, 0.28);
+  background: rgba(12, 10, 8, 0.72);
+  backdrop-filter: blur(6px);
+  color: var(--sand);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.deck-confidential-dot {
+  flex: 0 0 auto;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px rgba(201, 164, 92, 0.6);
+}
+
+@media (max-width: 720px) {
+  .deck-confidential {
+    font-size: 0.52rem;
+    letter-spacing: 0.1em;
+    white-space: normal;
+    max-width: calc(100vw - 48px);
+  }
+}
+
+.slide-footer {
+  position: absolute;
+  left: 44px;
+  right: 44px;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.66rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.slide-footer .brand-cactus {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.slide-footer .brand-bb {
+  color: var(--bb-blue);
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(77, 124, 255, 0.45);
+}
+
+/* Deck navigation dots */
+.deck-nav {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  z-index: 40;
+}
+
+.deck-nav button {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-deep);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.deck-nav button.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: scale(1.25);
+}
+
+@media (max-width: 640px) {
+  .slide-frame {
+    inset: 12px;
+  }
+  .slide-footer {
+    left: 24px;
+    right: 24px;
+    bottom: 18px;
+    font-size: 0.55rem;
+  }
+  .deck-nav {
+    right: 12px;
+  }
+}

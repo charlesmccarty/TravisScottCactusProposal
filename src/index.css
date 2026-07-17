@@ -1,0 +1,59 @@
+:root {
+  /* Brand palette — pulled from the Cactus X decks */
+  --ink: #0a0908;
+  --ink-2: #0d0b09;
+  --panel: #14110d;
+  --gold: #c9a45c;
+  --gold-bright: #e0c07a;
+  --gold-deep: #8a6f3c;
+  --sand: #d9c7a3;
+  --cream: #f4ecdd;
+  --muted: #9a8f7d;
+  --bb-blue: #4d7cff;
+  --line: rgba(201, 164, 92, 0.22);
+
+  /* Single clean sans across the deck — standard for modern pitch decks.
+     --font-serif is kept as a name for headings but now points to Inter. */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: var(--font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+}
+
+::selection {
+  background: rgba(201, 164, 92, 0.3);
+  color: var(--cream);
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.34em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+/* thin scrollbar hidden for deck feel */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
