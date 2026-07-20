@@ -1,4 +1,3 @@
-import CactusXMachine from "../components/CactusXMachine.jsx";
 import SlideShell from "../components/SlideShell.jsx";
 import "./slides.css";
 
@@ -9,12 +8,8 @@ export default function Slide01Title({ index, total }) {
       <div className="bg-grain" />
 
       <SlideShell index={index} total={total}>
-        <div className="title-slide">
+        <div className="title-slide title-slide--text">
           <p className="eyebrow title-eyebrow">Iconic products. Endless possibilities.</p>
-
-          <div className="machine-stage">
-            <CactusXMachine embedded height="100%" />
-          </div>
 
           <div className="title-block">
             <h1 className="title-wordmark">

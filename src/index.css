@@ -1,16 +1,16 @@
 :root {
-  /* Brand palette — pulled from the Cactus X decks */
-  --ink: #0a0908;
-  --ink-2: #0d0b09;
-  --panel: #14110d;
+  /* Neutral charcoal base; gold reserved for small accents only */
+  --ink: #0b0b0c;
+  --ink-2: #0e0e10;
+  --panel: rgba(255, 255, 255, 0.035);
   --gold: #c9a45c;
-  --gold-bright: #e0c07a;
-  --gold-deep: #8a6f3c;
-  --sand: #d9c7a3;
-  --cream: #f4ecdd;
-  --muted: #9a8f7d;
+  --gold-bright: #dcbc7f;
+  --gold-deep: #8a744d;
+  --sand: #c9c5be;
+  --cream: #f3f2ef;
+  --muted: #8f8b84;
   --bb-blue: #4d7cff;
-  --line: rgba(201, 164, 92, 0.22);
+  --line: rgba(255, 255, 255, 0.1);
 
   /* Single clean sans across the deck — standard for modern pitch decks.
      --font-serif is kept as a name for headings but now points to Inter. */
@@ -46,9 +46,9 @@ body {
 .eyebrow {
   font-family: var(--font-sans);
   text-transform: uppercase;
-  letter-spacing: 0.34em;
-  font-size: 0.72rem;
-  font-weight: 500;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  font-weight: 600;
   color: var(--gold);
 }
 

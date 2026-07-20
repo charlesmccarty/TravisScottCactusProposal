@@ -42,7 +42,7 @@ export default function Deck({ slides }) {
       // advance slides once the user is at the top/bottom edge.
       const slideEl = slideRefs.current[active];
       const scroller = slideEl && slideEl.querySelector(
-        ".title-slide, .opp-slide, .dash-slide, .age-slide, .close-slide"
+        ".title-slide, .work-slide, .opp-slide, .dash-slide, .age-slide, .close-slide, .machine-slide"
       );
       if (scroller && Math.abs(e.deltaY) >= Math.abs(e.deltaX)) {
         const oy = getComputedStyle(scroller).overflowY;
@@ -128,7 +128,6 @@ export default function Deck({ slides }) {
           aria-label="Next slide"
           onClick={() => goTo(active + 1)}
         >
-          <span className="deck-next-label">Next</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M9 6l6 6-6 6" />
           </svg>
